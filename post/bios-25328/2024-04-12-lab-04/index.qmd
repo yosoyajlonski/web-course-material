@@ -47,7 +47,7 @@ suppressMessages(library(glue))
 
 ### Download data
 
--   download the data from here and place it in a directory called DATA
+-   download the data from [here](https://uchicago.box.com/s/snhot2x0272dzuuas4ipkgnrlxva2qga) and place it in a directory called DATA
 -   download PRSice software from <https://choishingwan.github.io/PRSice/>
 
 If you are on a Mac install the mac appropriate binary:
