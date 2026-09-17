@@ -22,19 +22,19 @@ draft: false
 
 ## 2.  Multiple testing simulation (30 points)
 
-1. Simulate X, Ynull, Yalt
-2. Plot Ynull vs X, Yalt vs X
-3. Run linear regression and find the estimated effect sizes
-4. Repeat the simulations 10000 times and save the coefficients and p-values for each simulation in vectors
-5. Plot the distribution of p-values when you use Ynull and Yalt
-6. Simulate a mixture of Ynull and Yalt using a vector (selectvec) that determines whether the null or alternative is the true model
-7. Show the distribution of p-values using the histogram. Also try using qqplot of the p-values and simulated uniform random variables (show the identity line). Interpret the figure.
-8. For your simulation, calculate the entries of the “confusion table”, i.e. the one that has the number of significant, not significant, discriminated by whether they are real or not (slide page 29)
+1. Simulate X (the genotype), Ynull (a trait unrelated to X), and Yalt (a trait affected by X).
+2. Plot Ynull vs X, and Yalt vs X.
+3. Run a linear regression and find the estimated effect sizes for Ynull and Yalt.
+4. Repeat the simulations 10000 times and save the coefficients and p-values for each simulation in vectors.
+5. Plot the distribution of the p-values when you use Ynull and Yalt.
+6. Simulate a mixture of Ynull and Yalt using a vector (selectvec) that determines whether the null or alternative is the true model.
+7. Show the distribution of the p-values (from the mixture) using the histogram. Also, try using qqplot of the p-values and simulated uniform random variables (show the identity line). Interpret the figure.
+8. For your simulation, calculate the entries of the “confusion table”, i.e. the one that has the number of significant, not significant, discriminated by whether they are real or not (slide page 29).
 9. In a real data analysis, can you calculate this table? Why yes or not?
-10. Install the qvalue package and calculate the qvalues for your pvalues
-11. Calculate the pi0 from the qvalue results. How does it compare to the proportion of null Y’s you simulated? Interpret.
+10. Install the qvalue package (install.packages("qvalue")) and calculate the qvalues for your pvalues
+11. Calculate the pi0 from the qvalue results. How does it compare to the proportion of null Y’s you simulated? Interpret the findings.
 
 **Hint**: use the code from the [lecture slides](https://www.icloud.com/keynote/05aH8HkigfdfzI97_mS5xX5yA#L4-Multiple-Testing-Correction) or [here](https://bios25328.hakyimlab.org/post/2022/04/06/multiple-testing-2022/)
 
-- extra credit: simulate X as a more realistic genotype using maf of 0.3
+- extra credit: simulate X as a more realistic genotype using a minor allele frequency (maf) of 0.3.
 - extra extra credit: simulate a binary trait using the logistic regression vignette we saw in class
