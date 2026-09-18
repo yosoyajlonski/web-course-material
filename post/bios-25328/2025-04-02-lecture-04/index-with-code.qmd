@@ -51,7 +51,7 @@ beta = 2        # Effect size for the alternative hypothesis
 h2 = 0.1        # Proportion of variance in Yalt explained by X (related to signal strength)
 sig2X = h2      # Variance of X (scaled for simplicity here)
 sig2epsi = (1 - h2) * beta^2 # Variance of the error term epsilon, ensuring desired h2
-sigX = sqrt(sig2X) # Variance of X
+sigX = sqrt(sig2X) # SD of X
 sigepsi = sqrt(sig2epsi)
 
 print(paste("Variance of X:", sig2X))
@@ -64,7 +64,7 @@ Simulate vectors X, epsilon (error), and Ynull (outcome under null). Then calcul
 
 ```{r}
 # Simulate predictor X and error term epsi
-X = rnorm(nsamp, mean=0, sd= sigX) #simulating X with specified number of samples, mean and standard deviation
+X = rnorm(nsamp, mean=0, sd= sigX) # Simulating X with specified number of samples, mean and standard deviation
 epsi = rnorm(nsamp, mean=0, sd=sigepsi) #simulating our error term epsilon with specified # of samples, mean and SD
 
 # Generate Ynull (independent of X, here just sampling with variance related to beta for comparison)
@@ -120,13 +120,13 @@ fastlm = function(xx,yy) {
   yy = yy[ind]
   n = sum(ind)
   
-  #computing means of x and y 
+  # Computing means of x and y 
   xbar = mean(xx)
   ybar = mean(yy)
   xx = xx - xbar # Center X
   yy = yy - ybar # Center Y
   
-  # Sm of squares for X, y, and the cross-products of X and Y.
+  # Sum of squares for X, y, and the cross-products of X and Y.
   SXX = sum( xx^2 )
   SYY = sum( yy^2 )
   SXY = sum( xx * yy )
@@ -141,7 +141,7 @@ fastlm = function(xx,yy) {
   
   # F-statistic comparing the two models
   fstat = ( ( RSS0 - RSS1 ) / ( df1 - df0 ) )  / ( RSS1 / ( n - df1 ) ) 
-  # P-value from F-distribution (converting)
+  # P-value from F-distribution (one minus the CDF)
   pval = 1 - pf(fstat, df1 = ( df1 - df0 ), df2 = ( n - df1 )) 
   
   res = list(betahat = betahat, pval = pval)
